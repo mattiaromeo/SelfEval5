@@ -1,1 +1,35 @@
 apply plugin: 'idea'
+apply plugin: 'jacoco'
+
+idea {
+    module {
+        excludeDirs += file('.idea')
+        excludeDirs += file('build')
+    }
+}
+
+
+test{
+    systemProperties = System.properties
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            element = 'CLASS'
+            includes = ['be.cegeka.X.application.*','be.cegeka.X.domain.*']
+            limit {
+                counter = 'BRANCH'
+                minimum = 0.7
+            }
+        }
+        rule {
+            element = 'PACKAGE'
+            includes = ['be.cegeka.X.application.*','be.cegeka.X.domain.*']
+            limit {
+                counter = 'COMPLEXITY'
+                minimum = 0.5
+            }
+        }
+    }
+}
