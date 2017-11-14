@@ -17,3 +17,4 @@ distance double,
 highwayid int,
 userid int
 );
+
