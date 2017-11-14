@@ -28,4 +28,10 @@ public class ControllerTest {
         controller.getAllHighways();
         verify(service).getAllHighway();
     }
+
+    @Test
+    public void whenCallingControllerReportIncidentShouldCallServiceReportIncident() throws Exception {
+        controller.reportIncident(1,1,"incident","ongeval",10.0);
+        verify(service).reportIncident(1,1,"incident","ongeval",10.0);
+    }
 }

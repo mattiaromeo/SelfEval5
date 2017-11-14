@@ -30,4 +30,18 @@ public class Repository {
     public void addHighway(Highway highway) {
         entityManager.persist(highway);
     }
+
+    public User getUserByID(int userid) {
+        return entityManager
+                .createQuery("select u from User u where u.id=:userid",User.class)
+                .setParameter("userid",userid)
+                .getSingleResult();
+    }
+
+    public Highway getHighwayByID(int highwayid) {
+        return entityManager
+                .createQuery("select h from Highway h where h.id=:highwayid",Highway.class)
+                .setParameter("highwayid",highwayid)
+                .getSingleResult();
+    }
 }

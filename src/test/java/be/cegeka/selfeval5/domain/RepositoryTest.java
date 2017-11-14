@@ -78,4 +78,14 @@ public class RepositoryTest {
         repository.addHighway(highway3);
         assertThat(repository.getAllHighway()).contains(highway3);
     }
+
+    @Test
+    public void getUserByIDShouldReturnCorrectUser() throws Exception {
+        assertThat(repository.getUserByID(1).getName()).isEqualTo("mattia");
+    }
+
+    @Test
+    public void getHighwayByIDShouldReturnCorrectHighway() throws Exception {
+        assertThat(repository.getHighwayByID(1).getName()).isEqualTo("e314");
+    }
 }

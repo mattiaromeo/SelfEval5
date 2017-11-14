@@ -1,6 +1,7 @@
 package be.cegeka.selfeval5.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="USER")
@@ -12,6 +13,9 @@ public class User {
     private int id;
     @Column(name="NAME")
     private String name;
+    @ManyToMany
+    @JoinColumn(name="USERID")
+    private List<Incident> userIncident;
 
     public User() {
     }
@@ -26,5 +30,9 @@ public class User {
 
     public int getId() {
         return id;
+    }
+
+    public void setUserIncident(List<Incident> userIncident) {
+        this.userIncident = userIncident;
     }
 }

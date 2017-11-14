@@ -25,4 +25,11 @@ public class ServiceTest {
         service.getAllHighway();
         verify(repository).getAllHighway();
     }
+
+    @Test
+    public void whenCallingServiceReportIncidentRepositoryReportIncidentShouldBeCalled() throws Exception {
+        service.reportIncident(1, 1, "incident", "ongeval", 10);
+        verify(repository).getUserByID(1);
+        verify(repository).getHighwayByID(1);
+    }
 }

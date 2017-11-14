@@ -39,4 +39,8 @@ public class Highway {
     public double getDistance() {
         return distance;
     }
+
+    public void setHighwayIncident(List<Incident> highwayIncident) {
+        this.highwayIncident = highwayIncident;
+    }
 }
