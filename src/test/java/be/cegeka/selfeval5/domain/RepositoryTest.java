@@ -88,4 +88,18 @@ public class RepositoryTest {
     public void getHighwayByIDShouldReturnCorrectHighway() throws Exception {
         assertThat(repository.getHighwayByID(1).getName()).isEqualTo("e314");
     }
+
+    @Test
+    public void getAllIncidentsShouldReturnAllIncidents() throws Exception {
+        Incident testIncident=new Incident("name","test",10.0);
+        entityManager.persist(testIncident);
+        assertThat(repository.getAllIncidents()).contains(testIncident);
+    }
+
+    @Test
+    public void addIncidentShouldAddIncidentToDB() throws Exception {
+        Incident testIncident=new Incident("name","test",10.0);
+        repository.addIncident(testIncident);
+        assertThat(repository.getAllIncidents()).contains(testIncident);
+    }
 }

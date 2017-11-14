@@ -33,15 +33,25 @@ public class Repository {
 
     public User getUserByID(int userid) {
         return entityManager
-                .createQuery("select u from User u where u.id=:userid",User.class)
-                .setParameter("userid",userid)
+                .createQuery("select u from User u where u.id=:userid", User.class)
+                .setParameter("userid", userid)
                 .getSingleResult();
     }
 
     public Highway getHighwayByID(int highwayid) {
         return entityManager
-                .createQuery("select h from Highway h where h.id=:highwayid",Highway.class)
-                .setParameter("highwayid",highwayid)
+                .createQuery("select h from Highway h where h.id=:highwayid", Highway.class)
+                .setParameter("highwayid", highwayid)
                 .getSingleResult();
+    }
+
+    public void addIncident(Incident incident) {
+        entityManager.persist(incident);
+    }
+
+    public List<Incident> getAllIncidents() {
+        return entityManager
+                .createQuery("select i from Incident i",Incident.class)
+                .getResultList();
     }
 }

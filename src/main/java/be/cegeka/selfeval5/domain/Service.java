@@ -15,12 +15,10 @@ public class Service {
     }
 
     public void reportIncident(int userid, int highwayid,String name, String type, double distance) {
-        List<Incident> list=new ArrayList<>();
         User selectedUser= repository.getUserByID(userid);
         Highway selectedHighway=repository.getHighwayByID(highwayid);
         Incident newIncident=new Incident(name,type,distance);
-        list.add(newIncident);
-        selectedUser.setUserIncident(list);
-        selectedHighway.setHighwayIncident(list);
+        selectedUser.addUserIncident(newIncident);
+        selectedHighway.addHighwayIncident(newIncident);
     }
 }

@@ -40,7 +40,7 @@ public class Highway {
         return distance;
     }
 
-    public void setHighwayIncident(List<Incident> highwayIncident) {
-        this.highwayIncident = highwayIncident;
+    public void addHighwayIncident(Incident incident) {
+        highwayIncident.add(incident);
     }
 }
