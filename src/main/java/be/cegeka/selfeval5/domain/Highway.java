@@ -3,6 +3,7 @@ package be.cegeka.selfeval5.domain;
 import com.sun.javafx.beans.IDProperty;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="HIGHWAY")
@@ -15,6 +16,9 @@ public class Highway {
     private String name;
     @Column(name="DISTANCE")
     private double distance;
+    @OneToMany
+    @JoinColumn(name="HIGHWAYID")
+    private List<Incident> highwayIncident;
 
     public Highway() {
     }
