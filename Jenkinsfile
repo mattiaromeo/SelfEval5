@@ -9,8 +9,8 @@ pipeline {
         }
         stage('cleanDb') {
            steps {
-               bat './gradlew.bat flywayClean -P flyway.schemas=seppe -P flyway.url=jdbc:mysql://localhost:3306/seppe -P flyway.user=seppe'
-               bat './gradlew.bat flywayMigrate -P flyway.schemas=seppe -P flyway.url=jdbc:mysql://localhost:3306/seppe  -P flyway.user=seppe'
+               bat './gradlew.bat flywayClean -P flyway.schemas=mattia -P flyway.url=jdbc:mysql://localhost:3306/mattia -P flyway.user=mattia'
+               bat './gradlew.bat flywayMigrate -P flyway.schemas=mattia -P flyway.url=jdbc:mysql://localhost:3306/mattia  -P flyway.user=mattia'
            }
         }
 
