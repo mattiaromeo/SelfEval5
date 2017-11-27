@@ -41,4 +41,10 @@ public class ControllerTest {
         controller.getAllIncidentsForUser(1);
         verify(service).getAllIncidentsForUser(1);
     }
+
+    @Test
+    public void whenCallingGetAllUsersWhoReportedIncidentShouldCallServiceGetAllUsersWhoReportedIncident() throws Exception {
+        controller.getAllUsersWhoReportedIncident(1);
+        verify(service).getAllUsersWhoReportedIncident(1);
+    }
 }

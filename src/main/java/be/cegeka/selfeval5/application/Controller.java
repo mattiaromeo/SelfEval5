@@ -3,6 +3,7 @@ package be.cegeka.selfeval5.application;
 import be.cegeka.selfeval5.domain.Highway;
 import be.cegeka.selfeval5.domain.Incident;
 import be.cegeka.selfeval5.domain.Service;
+import be.cegeka.selfeval5.domain.User;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
@@ -28,11 +29,17 @@ public class Controller {
             @RequestParam(value = "highwayid") int highwayid,
             @RequestParam(value = "incidentname") String name,
             @RequestParam(value = "type", required = true) String type,
-            @RequestParam(value = "distance", required = true) double distance){
-        service.reportIncident(userid,highwayid,name,type,distance);
+            @RequestParam(value = "distance", required = true) double distance) {
+        service.reportIncident(userid, highwayid, name, type, distance);
     }
-    @GetMapping(path="/getAllReportedIncidentsForUser/{userId}")
-    public List<Incident> getAllIncidentsForUser(@PathVariable("userId") int userId ) {
-                return service.getAllIncidentsForUser(userId);
+
+    @GetMapping(path = "/getAllReportedIncidentsForUser/{userId}")
+    public List<Incident> getAllIncidentsForUser(@PathVariable("userId") int userId) {
+        return service.getAllIncidentsForUser(userId);
+    }
+
+    @GetMapping(path = "/getAllUserWhoReportedIncident")
+    public List<User> getAllUsersWhoReportedIncident(@RequestParam(value="incidentid",required = true)int incidentId) {
+        return service.getAllUsersWhoReportedIncident(incidentId);
     }
 }

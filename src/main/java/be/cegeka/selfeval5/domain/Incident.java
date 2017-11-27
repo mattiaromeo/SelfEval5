@@ -47,4 +47,8 @@ public class Incident {
     public double getDistance() {
         return distance;
     }
+
+    public List<User> getUsers() {
+        return users;
+    }
 }

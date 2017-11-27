@@ -56,4 +56,9 @@ public class ServiceTest {
         when(user.getIncidents()).thenReturn(testlist);
         Assertions.assertThat(user.getIncidents()).contains(test);
     }
+
+    @Test
+    public void whenCallingServiceGetAllUsersWhoReportedIncidentShouldCallRepositoryGetAllUsersWhoReportedIncident() throws Exception {
+
+    }
 }

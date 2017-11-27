@@ -29,4 +29,9 @@ public class Service {
         return selectedUser.getIncidents();
 
     }
+
+    public List<User> getAllUsersWhoReportedIncident(int incidentId) {
+        Incident selectedIncident=repository.getIncidentById(incidentId);
+        return selectedIncident.getUsers();
+    }
 }

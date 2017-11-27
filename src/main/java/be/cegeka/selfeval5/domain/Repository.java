@@ -51,7 +51,14 @@ public class Repository {
 
     public List<Incident> getAllIncidents() {
         return entityManager
-                .createQuery("select i from Incident i",Incident.class)
+                .createQuery("select i from Incident i", Incident.class)
                 .getResultList();
+    }
+
+    public Incident getIncidentById(int incidentId) {
+        return entityManager
+                .createQuery("select i from Incident i where i.id=:incidentId ", Incident.class)
+                .setParameter("incidentId", incidentId)
+                .getSingleResult();
     }
 }
