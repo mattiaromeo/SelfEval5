@@ -44,4 +44,8 @@ public class User {
 
         incidents.add(incident);
     }
+
+    public List<Incident> getIncidents() {
+        return incidents;
+    }
 }

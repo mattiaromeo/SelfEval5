@@ -1,5 +1,7 @@
 package be.cegeka.selfeval5.domain;
 
+import com.sun.org.apache.regexp.internal.RE;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.ArrayList;
@@ -20,5 +22,11 @@ public class Service {
         Incident newIncident=new Incident(name,type,distance);
         selectedUser.addUserIncident(newIncident);
         selectedHighway.addHighwayIncident(newIncident);
+    }
+
+    public List<Incident> getAllIncidentsForUser(int userId) {
+        User selectedUser= repository.getUserByID(userId);
+        return selectedUser.getIncidents();
+
     }
 }

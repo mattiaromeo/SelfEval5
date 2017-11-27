@@ -12,6 +12,7 @@ import javax.inject.Named;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
+
 @Named
 public class ControllerTest {
     @Rule
@@ -31,7 +32,13 @@ public class ControllerTest {
 
     @Test
     public void whenCallingControllerReportIncidentShouldCallServiceReportIncident() throws Exception {
-        controller.reportIncident(1,1,"incident","ongeval",10.0);
-        verify(service).reportIncident(1,1,"incident","ongeval",10.0);
+        controller.reportIncident(1, 1, "incident", "ongeval", 10.0);
+        verify(service).reportIncident(1, 1, "incident", "ongeval", 10.0);
+    }
+
+    @Test
+    public void whenCallingControllerGetAllIncidentsForUserShouldCallServiceGetAllIncidentsForUser() throws Exception {
+        controller.getAllIncidentsForUser(1);
+        verify(service).getAllIncidentsForUser(1);
     }
 }
