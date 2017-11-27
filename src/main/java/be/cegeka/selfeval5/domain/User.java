@@ -3,6 +3,8 @@ package be.cegeka.selfeval5.domain;
 import org.hibernate.engine.internal.Cascade;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,9 +17,13 @@ public class User {
     private int id;
     @Column(name = "NAME")
     private String name;
-    @ManyToMany
-    @JoinColumn(name = "USERID")
-    private List<Incident> userIncident;
+    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "USERID")
+//    private List<Incident> userIncident;
+    @JoinTable(name = "USER_INCIDENT",
+            joinColumns ={@JoinColumn(name="userid")} ,
+            inverseJoinColumns ={@JoinColumn(name="incidentid")} )
+    private List<Incident> incidents= new ArrayList<Incident>();
 
     public User() {
     }
@@ -36,6 +42,6 @@ public class User {
 
     public void addUserIncident(Incident incident) {
 
-        userIncident.add(incident);
+        incidents.add(incident);
     }
 }

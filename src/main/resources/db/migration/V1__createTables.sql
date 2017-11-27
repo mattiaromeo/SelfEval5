@@ -18,3 +18,9 @@ highwayid int,
 userid int
 );
 
+create table USER_INCIDENT(
+id int primary key auto_increment,
+userid int,
+incidentid int
+);
+

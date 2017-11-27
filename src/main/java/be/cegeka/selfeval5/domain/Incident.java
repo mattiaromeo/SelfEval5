@@ -2,6 +2,8 @@ package be.cegeka.selfeval5.domain;
 
 import javax.inject.Named;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="INCIDENT")
@@ -17,6 +19,9 @@ public class Incident {
     private String type;
     @Column(name="DISTANCE")
     private double distance;
+    @ManyToMany(mappedBy="incidents",cascade = CascadeType.ALL)
+    private List<User> users = new ArrayList<User>();
+
 
     public Incident() {
     }

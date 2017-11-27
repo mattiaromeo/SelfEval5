@@ -16,12 +16,10 @@ public class Highway {
     private String name;
     @Column(name="DISTANCE")
     private double distance;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="HIGHWAYID")
     private List<Incident> highwayIncident;
-//
-//    @JoinTable(name="USER_INCIDENT",joinColumns = @JoinColumn(name="CUST_ID", referencedColumnName="ID"),
-//            inverseJoinColumns = @JoinColumn(name="PHONE_ID", referencedColumnName="ID"));
+
 
     public Highway() {
     }
