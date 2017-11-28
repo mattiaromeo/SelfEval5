@@ -40,14 +40,13 @@ public class Controller {
 
     @PostMapping(path = "/confirmIncident")
     public void confirmIncident(
-            @RequestParam(value = "customerId", required = true) int userId,
+            @RequestParam(value = "userId", required = true) int userId,
             @RequestParam(value = "incidentId", required = true) int incidentId) {
         service.confirmIncident(userId, incidentId);
     }
 
-    @GetMapping(path = "/getAllUserWhoReportedIncident/{incidentId")
-    public List<User> getAllUsersWhoReportedIncident(
-            @PathVariable(value = "incidentId", required = true) int incidentId) {
+    @GetMapping(path = "/getAllUserWhoReportedIncident/{incidentId}")
+    public List<User> getAllUsersWhoReportedIncident(@PathVariable("incidentId") int incidentId) {
         return service.getAllUsersWhoReportedIncident(incidentId);
     }
 }
