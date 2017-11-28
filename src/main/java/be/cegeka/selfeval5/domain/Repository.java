@@ -61,4 +61,14 @@ public class Repository {
                 .setParameter("incidentId", incidentId)
                 .getSingleResult();
     }
+
+    public List<User> getAllUsersWhoReportedIncident(int incidentId){
+        return entityManager
+                .createQuery("select u from User u join u.incidents as i where i.id=:incidentId",User.class)
+                .setParameter("incidentId",incidentId)
+                .getResultList();
+    }
+
+
+//    select userid from user_incidents where incidentid:=incidentid
 }

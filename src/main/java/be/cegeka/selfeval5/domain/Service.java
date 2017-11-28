@@ -34,4 +34,8 @@ public class Service {
         User selectedUser=repository.getUserByID(userId);
         selectedUser.addUserIncident(selectedIncident);
     }
+
+    public List<User> getAllUsersWhoReportedIncident(int incidentId) {
+        return repository.getAllUsersWhoReportedIncident(incidentId);
+    }
 }

@@ -38,16 +38,16 @@ public class Controller {
         return service.getAllIncidentsForUser(userId);
     }
 
-//    @PostMapping(path = "/confirmIncident")
-//    public void confirmIncident(
-//            @RequestParam(value = "customerId", required = true) int userId,
-//            @RequestParam(value = "incidentId", required = true) int incidentId) {
-//        service.confirmIncident(userId, incidentId);
-//    }
+    @PostMapping(path = "/confirmIncident")
+    public void confirmIncident(
+            @RequestParam(value = "customerId", required = true) int userId,
+            @RequestParam(value = "incidentId", required = true) int incidentId) {
+        service.confirmIncident(userId, incidentId);
+    }
 
-//    @GetMapping(path = "/getAllUserWhoReportedIncident/{incidentId")
-//    public List<User> getAllUsersWhoReportedIncident(
-//            @PathVariable(value = "incidentId", required = true) int incidentId) {
-//        return service.getAllUsersWhoReportedIncident(incidentId);
-//    }
+    @GetMapping(path = "/getAllUserWhoReportedIncident/{incidentId")
+    public List<User> getAllUsersWhoReportedIncident(
+            @PathVariable(value = "incidentId", required = true) int incidentId) {
+        return service.getAllUsersWhoReportedIncident(incidentId);
+    }
 }
