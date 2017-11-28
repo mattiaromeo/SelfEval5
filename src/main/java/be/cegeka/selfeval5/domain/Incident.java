@@ -19,8 +19,8 @@ public class Incident {
     private String type;
     @Column(name="DISTANCE")
     private double distance;
-    @ManyToMany(mappedBy="incidents",cascade = CascadeType.ALL)
-    private List<User> users = new ArrayList<User>();
+//    @ManyToMany(mappedBy="incidents",cascade = CascadeType.ALL)
+//    private List<User> users = new ArrayList<User>();
 
 
     public Incident() {
@@ -48,7 +48,7 @@ public class Incident {
         return distance;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
+//    public List<User> getUsers() {
+//        return users;
+//    }
 }

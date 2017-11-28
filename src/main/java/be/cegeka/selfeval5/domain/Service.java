@@ -27,11 +27,11 @@ public class Service {
     public List<Incident> getAllIncidentsForUser(int userId) {
         User selectedUser= repository.getUserByID(userId);
         return selectedUser.getIncidents();
-
     }
 
-    public List<User> getAllUsersWhoReportedIncident(int incidentId) {
+    public void confirmIncident(int userId, int incidentId) {
         Incident selectedIncident=repository.getIncidentById(incidentId);
-        return selectedIncident.getUsers();
+        User selectedUser=repository.getUserByID(userId);
+        selectedUser.addUserIncident(selectedIncident);
     }
 }

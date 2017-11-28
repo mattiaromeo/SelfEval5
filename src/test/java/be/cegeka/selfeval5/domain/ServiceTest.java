@@ -57,8 +57,4 @@ public class ServiceTest {
         Assertions.assertThat(user.getIncidents()).contains(test);
     }
 
-    @Test
-    public void whenCallingServiceGetAllUsersWhoReportedIncidentShouldCallRepositoryGetAllUsersWhoReportedIncident() throws Exception {
-
-    }
 }

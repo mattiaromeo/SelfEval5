@@ -42,9 +42,4 @@ public class ControllerTest {
         verify(service).getAllIncidentsForUser(1);
     }
 
-    @Test
-    public void whenCallingGetAllUsersWhoReportedIncidentShouldCallServiceGetAllUsersWhoReportedIncident() throws Exception {
-        controller.getAllUsersWhoReportedIncident(1);
-        verify(service).getAllUsersWhoReportedIncident(1);
-    }
 }
